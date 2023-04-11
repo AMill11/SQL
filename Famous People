@@ -1,0 +1,45 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname TEXT, birthdate TEXT, age INTEGER, occupation INTEGER, networth INTEGER);
+
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Jennifer Lawrence", "8-15-1990", "32", "1", "160000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Pedro Pascal", "4-2-1975", "47", "1", "10000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Taylor Swift", "12-13-1989", "33", "2", "570000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Billie Eilish", "12-18-2001", "21", "2", "141000000" );
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Leonardo DiCaprio", "11-11-1974", "48", "1", "300000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Adam Sandler", "9-9-1966", "56", "1", "440000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Justin Timberlake", "1-31-1981", "42", "2", "250000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Anne Hathaway", "11-12-1982", "40", "1", "85000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Jenna Ortega", "9-27-2002", "20", "1", "3000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Tom Hardy", "9-15-1977", "45", "1", "60000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Kendall Jenner", "11-03-1995", "27", "3", "50000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Gigi Hadid", "4-23-1995", "27", "3", "30000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Yayoi Kusama", "3-22-1929", "93", "4", "20000000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Anthony Abdel Karim", "7-19-1998", "24", "4", "300000");
+INSERT INTO famous_people (fullname, birthdate, age, occupation, networth) VALUES ("Jeff Koons", "1-21-1955", "8", "4", "4000000");
+
+CREATE TABLE professions (id INTEGER PRIMARY KEY, title TEXT);
+
+INSERT INTO professions (id, title) VALUES (1, "Actor");
+INSERT INTO professions (id, title) VALUES (2, "Musician");
+INSERT INTO professions (id, title) VALUES (3, "Model");
+INSERT INTO professions (id, title) VALUES (4, "Artist");
+
+--Display the name from one table and profession from another together in its own new table. 
+SELECT famous_people.fullname, professions.title FROM famous_people
+    JOIN professions
+    ON famous_people.occupation = professions.id; 
+
+-- Display the name of the famous person, their occupation in order by their occupation. 
+SELECT famous_people.fullname, professions.title FROM famous_people
+    JOIN professions
+    ON famous_people.occupation = professions.id
+    ORDER BY title;
+ 
+--Display the name of the famous person, their occupation and their networth in the same table with data coming from two different tables, highest networth to lowest. 
+SELECT famous_people.fullname, famous_people.networth, professions.title FROM famous_people
+    JOIN professions
+    ON famous_people.occupation = professions.id
+    ORDER BY networth DESC; 
+    
+    
