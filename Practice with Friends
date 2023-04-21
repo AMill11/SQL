@@ -1,0 +1,46 @@
+CREATE TABLE friends (id INTEGER, name TEXT, birthday DATE);
+
+# In this SQL I am practicing creating and altering tables. 
+
+# Creating the table:
+CREATE TABLE friends (id INTEGER, name TEXT, birthday DATE);
+
+# Inserting data:
+INSERT INTO friends (id, name, birthday)
+VALUES (1, 'Ororo Munroe', '1940-05-30');
+
+INSERT INTO friends (id, name, birthday)
+VALUES (2, 'Steve Brown', '1991-05-31');
+
+INSERT INTO friends (id, name, birthday)
+VALUES (3, 'Katie Frye', '1992-07-08');
+
+#1. Ororo discovered she can control the weather and now wants to change her name to 'Storm'! Update her name in the table. 
+UPDATE friends
+SET name = 'Storm'
+WHERE id = 1;
+
+#2. Add an email column 
+ALTER TABLE friends
+ADD COLUMN email TEXT;
+
+UPDATE friends
+SET email =  'storm@codeacademy.com'
+WHERE id = 1; 
+
+#3. Storm is a fictional character - delete her! 
+DELETE FROM friends 
+WHERE id = 1;
+
+#4. Add a phone number column:
+ALTER TABLE friends
+ADD COLUMN phone INTEGER; 
+
+#5. Add data to the new phone column
+UPDATE friends 
+SET phone = '555-867-5309'
+WHERE id = 2; 
+
+UPDATE friends 
+SET phone = '555-555-5555'
+WHERE id = 3;
